@@ -1,15 +1,19 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import { shallow } from 'enzyme';
 
 import App from '../components/App';
 
-it('shows comment box component', () => {
-  const div = document.createElement('div');
+import CommentBox from '../components/app/CommentBox';
+import CommentList from '../components/app/CommentList';
 
-  ReactDom.render(<App />, div);
+it('has one CommentBox component', () => {
+  const component = shallow(<App />);
 
-  console.log('div.innerHTML: ', div.innerHTML);
+  expect(component.find(CommentBox).length).toEqual(1);
+});
 
-  // clear up nodes
-  ReactDom.unmountComponentAtNode(div);
+it('has one CommentList component', () => {
+  const component = shallow(<App />);
+
+  expect(component.find(CommentList).length).toEqual(1);
 });

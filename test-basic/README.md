@@ -4,5 +4,5 @@ My notes from taking this udemy online course
 
 ## TEST 
 
-set up enzyme with setupTest.js
+set up enzyme with "setupTests.js"
 - file name is important because Jest will run that file before run other tests
