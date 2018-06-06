@@ -1,12 +1,17 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
+import Root from 'Root';
 import CommentBox from './CommentBox';
 
 let component;
 
 beforeEach(() => {
-  component = mount(<CommentBox />);
+  component = mount(
+    <Root>
+      <CommentBox />
+    </Root>
+  );
 });
 
 afterEach(() => {
@@ -27,7 +32,7 @@ describe('event at textarea', () => {
       value: userInput,
     },
   };
-  
+
   beforeEach(() => {
     component.find('textarea').simulate('change', e);
     component.update();
