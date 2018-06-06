@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import Root from 'Root';
-import CommentBox from './CommentBox';
+import CommentBox from '../app/CommentBox';
 
 let component;
 

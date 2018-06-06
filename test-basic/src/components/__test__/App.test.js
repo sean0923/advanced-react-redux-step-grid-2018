@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import App from '../components/App';
+import App from '../App';
 
-import CommentBox from '../components/app/CommentBox';
-import CommentList from '../components/app/CommentList';
+import CommentBox from '../app/CommentBox';
+import CommentList from '../app/CommentList';
 
 let component;
 
