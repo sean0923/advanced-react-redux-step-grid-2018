@@ -4,9 +4,10 @@ import { createStore } from 'redux';
 
 import rootReducer from './reducers/rootReducer';
 
-const store = createStore(rootReducer, {});
+const Root = ({ children, initialState = {} }) => {
+  const store = createStore(rootReducer, initialState);
 
-const Root = props => {
-  return <Provider store={store}>{props.children}</Provider>;
+  return <Provider store={store}>{children}</Provider>;
 };
+
 export default Root;

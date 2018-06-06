@@ -20,6 +20,7 @@ e is event
 
 component.update() -> use for force rerender on setState(async)
 
+### Prob
 - describe block can limit the beforeEach scope
 
 - test throws many errors when wrapping react component with connect()
@@ -32,3 +33,13 @@ component.update() -> use for force rerender on setState(async)
 - wrap props.children with <Provider store={store}>
 - call Root.js for all test with connect()
 - then wrap test component with <Root>
+
+### Prob
+- how to test redux state in react component
+
+### Solution
+const Root = ({ children, initialState = {} }) => {
+  const store = createStore(rootReducer, initialState);
+
+  return <Provider store={store}>{children}</Provider>;
+};
