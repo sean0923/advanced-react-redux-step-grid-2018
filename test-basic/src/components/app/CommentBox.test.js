@@ -21,7 +21,6 @@ it('has textarea and a button', () => {
 
 describe('event at textarea', () => {
   // simulate user typeing 'I am input'
-
   const userInput = 'I am input';
   const e = {
     target: {
