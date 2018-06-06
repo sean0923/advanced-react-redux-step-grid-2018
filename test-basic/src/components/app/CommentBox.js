@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { saveComment } from '../../actions/actions';
+import { saveComment, getCommentsFromJsonPlaceholder } from '../../actions/actions';
 
 class CommentBox extends Component {
   state = {
@@ -20,13 +20,22 @@ class CommentBox extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h4>Comment</h4>
-        <textarea value={this.state.userInput} onChange={this.handleOnChange} />
-        <div>
-          <button>Submit Comment</button>
-        </div>
-      </form>
+      <React.Fragment>
+        <form onSubmit={this.handleSubmit}>
+          <h4>Comment</h4>
+          <textarea value={this.state.userInput} onChange={this.handleOnChange} />
+          <div>
+            <button>Submit Comment</button>
+          </div>
+        </form>
+        <button
+          onClick={() => {
+            this.props.getCommentsFromJsonPlaceholder();
+          }}
+        >
+          get comments from json placeholder
+        </button>
+      </React.Fragment>
     );
   }
 }
@@ -37,4 +46,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { saveComment })(CommentBox);
+export default connect(mapStateToProps, { saveComment, getCommentsFromJsonPlaceholder })(
+  CommentBox
+);

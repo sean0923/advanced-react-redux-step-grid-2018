@@ -19,9 +19,12 @@ afterEach(() => {
   component.unmount();
 });
 
-it('has textarea and a button', () => {
+it('has 1 textarea', () => {
   expect(component.find('textarea').length).toEqual(1);
-  expect(component.find('button').length).toEqual(1);
+});
+
+it('has 2 buttons', () => {
+  expect(component.find('button').length).toEqual(2);
 });
 
 describe('event at textarea', () => {
