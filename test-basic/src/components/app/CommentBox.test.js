@@ -30,3 +30,20 @@ it('let user to type input in textarea', () => {
   component.update();
   expect(component.find('textarea').props().value).toEqual(userInput);
 });
+
+it('empty text area after submit', () => {
+  const userInput = 'I am input';
+  const e = {
+    target: {
+      value: userInput,
+    },
+  };
+
+  component.find('textarea').simulate('change', e);
+  component.update();
+
+  component.find('textarea').simulate('submit', e);
+  component.update();
+
+  expect(component.find('textarea').props().value).toEqual('');
+});
