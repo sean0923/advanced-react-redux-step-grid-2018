@@ -19,3 +19,5 @@ component.find('textarea').simulate('change', e);
 e is event
 
 component.update() -> use for force rerender on setState(async)
+
+- describe block can limit the beforeEach scope

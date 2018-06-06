@@ -19,31 +19,29 @@ it('has textarea and a button', () => {
   expect(component.find('button').length).toEqual(1);
 });
 
-it('let user to type input in textarea', () => {
+describe('event at textarea', () => {
+  // simulate user typeing 'I am input'
+
   const userInput = 'I am input';
   const e = {
     target: {
       value: userInput,
     },
   };
-  component.find('textarea').simulate('change', e);
-  component.update();
-  expect(component.find('textarea').props().value).toEqual(userInput);
-});
+  
+  beforeEach(() => {
+    component.find('textarea').simulate('change', e);
+    component.update();
+  });
 
-it('empty text area after submit', () => {
-  const userInput = 'I am input';
-  const e = {
-    target: {
-      value: userInput,
-    },
-  };
+  it('let user to type input in textarea', () => {
+    expect(component.find('textarea').props().value).toEqual(userInput);
+  });
 
-  component.find('textarea').simulate('change', e);
-  component.update();
+  it('empty text area after submit', () => {
+    component.find('textarea').simulate('submit', e);
+    component.update();
 
-  component.find('textarea').simulate('submit', e);
-  component.update();
-
-  expect(component.find('textarea').props().value).toEqual('');
+    expect(component.find('textarea').props().value).toEqual('');
+  });
 });
