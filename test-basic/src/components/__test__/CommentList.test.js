@@ -24,8 +24,8 @@ it('has same number of <li> as comments', () => {
 });
 
 it('has same number of <li> as comments', () => {
-  // component.render().text()
   const allText = component.render().text();
+  
   expect(allText).toContain('comment1');
   expect(allText).toContain('comment2');
 });

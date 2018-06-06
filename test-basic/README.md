@@ -43,3 +43,10 @@ const Root = ({ children, initialState = {} }) => {
 
   return <Provider store={store}>{children}</Provider>;
 };
+
+
+- Enzyme docs says 'component.render()' -> 'Returns a CheerioWrapper'
+- CheerioWapper is like jQuery can use .text() etc...
+
+## Testing HTTP request
+- yarn add axios redux-promise moxios
