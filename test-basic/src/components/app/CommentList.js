@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 const CommentList = props => {
   const renderList = () => {
+    
+    // console.log('props.comments: ', props.comments);
     return (
       <ul>
         {props.comments.map((comment, idx) => {

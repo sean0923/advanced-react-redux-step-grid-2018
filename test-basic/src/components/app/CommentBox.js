@@ -28,11 +28,7 @@ class CommentBox extends Component {
             <button>Submit Comment</button>
           </div>
         </form>
-        <button
-          onClick={() => {
-            this.props.getCommentsFromJsonPlaceholder();
-          }}
-        >
+        <button className='fetch-btn' onClick={this.props.getCommentsFromJsonPlaceholder}>
           get comments from json placeholder
         </button>
       </React.Fragment>

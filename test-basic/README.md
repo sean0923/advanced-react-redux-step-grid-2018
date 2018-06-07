@@ -50,3 +50,28 @@ const Root = ({ children, initialState = {} }) => {
 
 ## Testing HTTP request
 - yarn add axios redux-promise moxios
+
+## Unit vs Integration Test
+
+- Unit - one at a time
+- Integration - multiple at the same time
+
+1. mount app with provider
+2. click fetch btn
+3. count how many li tag
+
+But test fail in btw step 2 and 3 because http req CANNOT be made in jest environment 
+
+### Solution
+- use moxios (fake axios) maintained by axios
+
+- moxios takes time to do stub req
+- one solution is using settimeout with 100ms
+- but you never know how long moxios will take to do stub req
+- better solution is using moxios.wait
+
+- IMPORTANT component.update() must be inside of wait before checking
+
+## Conclusion
+- Step Grid think integration tests are lot more valuable and I agree.
+

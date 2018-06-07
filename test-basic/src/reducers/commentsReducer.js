@@ -7,6 +7,7 @@ export default (state = [], action) => {
 
     case types.GET_COMMENTS_FROM_JSON_PLACEHOLDER:
       const comments = action.payload.data.map(({ name }) => name);
+      // console.log('action.payload: ', action.payload);
       return [...state, ...comments];
       
     default:

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as types from './types';
 
-const jsonPlaceholderUrl = 'https://jsonplaceholder.typicode.com/comments';
+export const jsonPlaceholderUrl = 'https://jsonplaceholder.typicode.com/comments';
 
 export const saveComment = comment => {
   return {
