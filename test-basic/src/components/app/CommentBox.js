@@ -22,7 +22,7 @@ class CommentBox extends Component {
     return (
       <React.Fragment>
         <form onSubmit={this.handleSubmit}>
-          <h4>Comment</h4>
+          <h2>Box Route</h2>
           <textarea value={this.state.userInput} onChange={this.handleOnChange} />
           <div>
             <button>Submit Comment</button>

@@ -16,6 +16,7 @@ const CommentList = props => {
   
   return (
     <div>
+      <h2>home route</h2>
       <div>CommentList</div>
       {renderList()}
     </div>
