@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import * as actions from '../../../actions/actions';
 
 const BtnStyle = styled.button`
   padding: .4rem 1rem;
@@ -11,11 +12,27 @@ const BtnStyle = styled.button`
   font-size: 20px;
 `;
 
-const SignInOutBtn = ({ auth }) => {
-  if (auth) {
-    return <BtnStyle>Sign Out</BtnStyle>;
+const SignInOutBtn = props => {
+  if (props.auth) {
+    return (
+      <BtnStyle
+        onClick={() => {
+          props.changeAuth(false);
+        }}
+      >
+        Sign Out
+      </BtnStyle>
+    );
   }
-  return <BtnStyle>Sign In</BtnStyle>;
+  return (
+    <BtnStyle
+      onClick={() => {
+        props.changeAuth(true);
+      }}
+    >
+      Sign In
+    </BtnStyle>
+  );
 };
 
 const mapStateToProps = state => {
@@ -24,4 +41,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(SignInOutBtn);
+export default connect(mapStateToProps, actions)(SignInOutBtn);
