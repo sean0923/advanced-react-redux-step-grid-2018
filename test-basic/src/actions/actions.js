@@ -16,3 +16,10 @@ export const getCommentsFromJsonPlaceholder = () => {
     payload: axios.get(jsonPlaceholderUrl),
   };
 };
+
+export const changeAuth = (isLoggedIn) => {
+  return {
+    type: types.CHANGE_AUTH,
+    payload: isLoggedIn,
+  };
+};
