@@ -8,18 +8,6 @@ class CommentBox extends Component {
     userInput: '',
   };
 
-  componentDidMount() {
-    if (!this.props.auth) {
-      this.props.history.push('/');
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (!nextProps.auth) {
-      nextProps.history.push('/');
-    }
-  }
-
   handleOnChange = e => {
     this.setState({ userInput: e.target.value });
   };
@@ -48,13 +36,4 @@ class CommentBox extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    comments: state.comments,
-    auth: state.auth,
-  };
-};
-
-export default connect(mapStateToProps, { saveComment, getCommentsFromJsonPlaceholder })(
-  CommentBox
-);
+export default connect(null, { saveComment, getCommentsFromJsonPlaceholder })(CommentBox);
