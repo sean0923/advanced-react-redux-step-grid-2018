@@ -8,7 +8,7 @@ const routes = require('./routes');
 const app = express();
 
 // middleware
-app.use(morgan); // http req logging tool
+app.use(morgan('combined')); // http req logging tool
 app.use(bodyParser.json({ type: '*/*' }));
 
 // routes
