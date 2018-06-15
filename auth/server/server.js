@@ -7,6 +7,12 @@ const routes = require('./routes');
 
 const app = express();
 
+// connecting to mongoDB
+mongoose.connect('mongodb://localhost/step-grid-2018-auth');
+mongoose.connection.once('open', () => {
+  console.log('connected to MongoDB');
+});
+
 // middleware
 app.use(morgan('combined')); // http req logging tool
 app.use(bodyParser.json({ type: '*/*' }));
