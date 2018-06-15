@@ -5,18 +5,16 @@ exports.signup = (req, res, next) => {
 
   Users.findOne({ email })
     .then(user => {
-      if (user === null) {
-        const user = new Users({ email, password });
-        return user.save();
-      } else {
-        res.send('user already exist');
+      if (user) {
+        res.status(422).send({ error: 'Email is in use' });
       }
+      const newUser = new Users({ email, password });
+      return newUser.save();
     })
-    .then(newUser => {
-      res.send(newUser);
+    .then(() => {
+      res.json({ sucess: true });
     })
     .catch(err => {
-      console.log('err: ', err);
-      res.send(err);
+      return next(err);
     });
 };
