@@ -3,6 +3,10 @@ const Users = require('../models/users');
 exports.signup = (req, res, next) => {
   const { email, password } = req.body;
 
+  if(!email || !password) {
+    res.status(422).send({ error: 'You must provide email and password'})
+  }
+
   Users.findOne({ email })
     .then(user => {
       if (user) {
