@@ -22,4 +22,18 @@ const user = this;
 Send err if no password or no username
 
 
+npm install --save jwt-simple
+
+create secrete string in config.js and git ignore it
+jwt is create with secrete string you put in config.js
+
+make generateTokenForUser function
+
+jwt token has sub and iat property
+
+when user is successfully saved to the db res.send ({token: toeknForUser(user)})
+
+### jwt token
+- sub (subject)
+- iat (issue at time) 
 
