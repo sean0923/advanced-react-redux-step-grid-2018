@@ -14,7 +14,7 @@ mongoose.connection.once('open', () => {
 });
 
 // middleware
-app.use(morgan('combined')); // http req logging tool
+// app.use(morgan('combined')); // http req logging tool
 app.use(bodyParser.json({ type: '*/*' }));
 
 // routes
