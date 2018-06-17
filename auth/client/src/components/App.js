@@ -2,12 +2,11 @@ import React from 'react';
 
 import Header from './app/Header';
 
-const App = () => {
+const App = ({ children }) => {
   return (
     <div>
-      <div>
-        <Header />
-      </div>
+      <Header />
+      {children}
     </div>
   );
 };
