@@ -2,13 +2,17 @@ import React from 'react';
 
 import Header from './app/Header';
 
-const App = ({ children }) => {
+import { connect } from 'react-redux';
+
+const App = props => {
+  console.log('props: ', props);
+
   return (
     <div>
       <Header />
-      {children}
+      {props.children}
     </div>
   );
 };
 
-export default App;
+export default connect(state => state)(App);
