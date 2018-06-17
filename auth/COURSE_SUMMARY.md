@@ -80,6 +80,18 @@ There are many strategies
 jwtOptions need to know where to extract Jwt 
 for ex) jwtFromReqeust: ExtractJwt.fromHeader('authorization')
 
-### 110 - Making an Authenticated Request
+### 110 - Making an Authenticated Request (create requireAuth middleware)
+
+Request -> Passport -> Routes
+
+authenticate incoming request with passport
+
+when passport is authenticating tell { session: false }
+because session is related to cookies but we are dealing with token
+
+''' it behaves pretty similar to client side HOC '''
+''' request goes through middleware and if token is not right then '''
+''' send UnAuthorize ```
+
 
 

@@ -6,7 +6,7 @@ const config = require('../config');
 
 // Set up option for Jwt
 const jwtOption = {
-  jwtFromRequest: PassportJwt.ExtractJwt.fromHeader('authrization'),
+  jwtFromRequest: PassportJwt.ExtractJwt.fromHeader('authorization'),
   secretOrKey: config.jwtTokenSecret,
 };
 
