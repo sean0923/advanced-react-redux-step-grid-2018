@@ -93,5 +93,21 @@ because session is related to cookies but we are dealing with token
 ''' request goes through middleware and if token is not right then '''
 ''' send UnAuthorize ```
 
+### 111 - Loggin in with Local Strategy
+
+Sign in user get token, then user need to make req with tocken
+Can Login work with same logic ?
+Login, user get tocken, then ...
+
+It seems like if someone wants to do it with just email and password 
+passport might give you option
+
+npm install passport-local
+
+### 112 - Purpose of Local Strategy
+### 113 - Bcrypit Full Circle 
+compare incoming and stored password with bycript lib
+
+### 114 - Protecting Signin Route
 
 
