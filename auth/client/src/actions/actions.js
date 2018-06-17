@@ -12,7 +12,18 @@ export const getJwtTockenFromServer = userInputProps => async dispatch => {
       type: types.GET_JWT_TOKEN_FROM_SERVER,
       payload: response,
     });
+
+    return new Promise(resolve => {
+      resolve(true);
+    });
   } catch (error) {
-    console.log('error: ', error);
+    dispatch({
+      type: types.GOT_ERROR_MSSG_FROM_SERVER,
+      payload: error.response,
+    });
+
+    return new Promise(resolve => {
+      resolve(false);
+    });
   }
 };

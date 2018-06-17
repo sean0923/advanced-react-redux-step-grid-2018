@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const routes = require('./routes');
 
@@ -15,6 +16,7 @@ mongoose.connection.once('open', () => {
 
 // middleware
 // app.use(morgan('combined')); // http req logging tool
+app.use(cors());
 app.use(bodyParser.json({ type: '*/*' }));
 
 // routes

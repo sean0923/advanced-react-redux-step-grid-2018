@@ -3,23 +3,32 @@ import { connect } from 'react-redux';
 
 import * as actions from '../../actions/actions';
 
+import ErrorMessage from './ErrorMessage';
+
 class CommonForm extends Component {
   state = {
     email: '',
     password: '',
+    errorrMessageFromServer: '',
   };
 
   handleOnChange = (e, stateProp) => {
     this.setState({ [stateProp]: e.target.value });
   };
 
-  handleOnSubmit = e => {
+  handleOnSubmit = async e => {
     e.preventDefault();
-    this.props.getJwtTockenFromServer(this.state);
-    this.setState({
-      email: '',
-      password: '',
-    });
+    const isSuccess = await this.props.getJwtTockenFromServer(this.state);
+    if (isSuccess) {
+      this.setState({
+        email: '',
+        password: '',
+        errorrMessageFromServer: '',
+      });
+    } else {
+      console.log('this.props.auth.errorMessage: ', this.props.auth.errorMessage);
+      this.setState({ errorrMessageFromServer: this.props.auth.errorMessage.error });
+    }
   };
 
   render() {
@@ -32,7 +41,11 @@ class CommonForm extends Component {
             onChange={e => this.handleOnChange(e, 'email')}
             value={this.state.email}
           />
+          {this.state.errorrMessageFromServer.length > 0 && (
+            <ErrorMessage text={this.state.errorrMessageFromServer} />
+          )}
         </fieldset>
+
         <fieldset>
           <label>Password: </label>
           <input
@@ -50,4 +63,10 @@ class CommonForm extends Component {
   }
 }
 
-export default connect(null, actions)(CommonForm);
+const mapStateToProps = state => {
+  return {
+    auth: state.auth,
+  };
+};
+
+export default connect(mapStateToProps, actions)(CommonForm);
