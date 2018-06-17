@@ -2,7 +2,7 @@ const passport = require('passport');
 const PassportJwt = require('passport-jwt');
 
 const User = require('../models/users');
-const config = require('../config');
+const config = require('../../config');
 
 // Set up option for Jwt
 const jwtOption = {
@@ -29,4 +29,4 @@ const jwtLoginStrategy = new PassportJwt.Strategy(jwtOption, (payload, done) => 
 });
 
 // Tell passport to use this strategy
-passport.use(jwtLoginStrategy);
+module.exports = passport.use(jwtLoginStrategy);
