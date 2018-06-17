@@ -15,6 +15,7 @@ class Header extends Component {
   render() {
     return (
       <Wrapper>
+        <NavItem linkTo={'/'} text="Home" />
         <NavItem linkTo={'/signup'} text="Sgin Up" />
         <NavItem linkTo={'/signin'} text="Sign In" />
         <NavItem linkTo={'/signout'} text="Sign Out" />

@@ -10,11 +10,7 @@ const Wrapper = styled.div`
 `;
 
 const NavItem = ({ linkTo, text }) => {
-  return (
-    <Link to={linkTo}>
-      <Wrapper>{text}</Wrapper>
-    </Link>
-  );
+  return <Link to={linkTo}>{text}</Link>;
 };
 
 export default NavItem;

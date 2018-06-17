@@ -18,13 +18,15 @@ class CommonForm extends Component {
 
   handleOnSubmit = async e => {
     e.preventDefault();
-    const isSuccess = await this.props.getJwtTockenFromServer(this.state);
+    const isSuccess = await this.props.getJwtTockenFromServer(this.state, this.props.formType);
+
     if (isSuccess) {
       this.setState({
         email: '',
         password: '',
         errorrMessageFromServer: '',
       });
+      this.props.history.push('/feature');
     } else {
       console.log('this.props.auth.errorMessage: ', this.props.auth.errorMessage);
       this.setState({ errorrMessageFromServer: this.props.auth.errorMessage.error });
