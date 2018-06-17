@@ -37,3 +37,49 @@ when user is successfully saved to the db res.send ({token: toeknForUser(user)})
 - sub (subject)
 - iat (issue at time) 
 
+### 107 - Installing Passport
+- so far we built signup
+- going to builld login function
+
+npm install passport passport-jwt
+
+create service folder
+create passport.js file in service
+
+passport
+User
+config
+jwtStrategy
+ExtractJwt
+
+### 108 - Passport Strategies
+In Passport strategy is method to authenticate user
+There are many strategies
+1. verify user with a JWT
+2. verify user with username and password
+...
+ 
+ We will
+ 1. Setup options for JWT Strategy
+ 2. Create JWT strategy
+ 3. Tell psasport to user this strategy
+
+ 2. -- JwtStrategy has cb with args 'payload' and 'done'
+ - See if the user ID in the payload exists in our database
+
+ - find user -> done(null, user)
+ - CANNOT find user -> done(null, false)
+ - error -> return done(err, false)
+ 
+ ;; payload is what we put in while we jwt.encode 'sub', 'iat'
+ so payload.sub will be user.id
+
+
+### 109 - Using Strategies with Passport (1. JWT Option)
+
+jwtOptions need to know where to extract Jwt 
+for ex) jwtFromReqeust: ExtractJwt.fromHeader('authorization')
+
+### 110 - Making an Authenticated Request
+
+

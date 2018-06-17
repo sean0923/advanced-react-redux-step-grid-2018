@@ -5,7 +5,8 @@ const Users = require('../models/users');
 
 const generateTokenForUser = user => {
   const timeStamp = new Date().getTime();
-  jwt.encode({ sub: user._id, iat: timeStamp }, config.jwtTokenSecret);
+  console.log('user: ', user);
+  console.log('user.id: ', user.id);
   return jwt.encode({ sub: user.id, iat: timeStamp }, config.jwtTokenSecret);
 };
 
