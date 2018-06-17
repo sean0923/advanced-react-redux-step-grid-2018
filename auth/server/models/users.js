@@ -32,4 +32,23 @@ UserSchema.pre('save', function(next) {
   });
 });
 
+// add method to user model
+UserSchema.methods.comparePassword = function(incomingPassword) {
+  const user = this;
+
+  return new Promise((resolve, reject) => {
+    bcrypt.compare(incomingPassword, user.password, (err, isMatch) => {
+      if (err) {
+        return reject(err);
+      }
+
+      return resolve(isMatch);
+    });
+  });
+};
+
+// function dummy() {
+//   return yeah;
+// }
+
 module.exports = mongoose.model('users', UserSchema);
