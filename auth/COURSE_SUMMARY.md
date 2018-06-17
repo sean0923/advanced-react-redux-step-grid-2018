@@ -110,4 +110,8 @@ compare incoming and stored password with bycript lib
 
 ### 114 - Protecting Signin Route
 
+''' Implementing local stretagy using passport '''
+''' But I feel like I can do it without passport by creating custom middleware '''
+''' I should try this if I have time '''
+
 
