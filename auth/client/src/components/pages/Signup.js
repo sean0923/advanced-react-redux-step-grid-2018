@@ -1,8 +1,8 @@
 import React from 'react';
-import SignInAndOut from '../common/SignInAndOut';
+import CommonForm from '../common/CommonForm';
 
 const Signup = () => {
-  return <SignInAndOut />;
+  return <CommonForm />;
 };
 
 export default Signup;
