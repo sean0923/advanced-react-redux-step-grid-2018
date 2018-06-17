@@ -1,6 +1,6 @@
 const initialState = {
-  authenticated: false,
-  error: '',
+  authenticated: '',
+  errorMssage: '',
 };
 
 export default (state = initialState, action) => {
