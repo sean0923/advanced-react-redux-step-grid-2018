@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const Welcome = props => {
-  console.log('props: ', props);
   if (props.auth.jwtToken && props.auth.jwtToken.length > 0) {
     return (
       <div>
