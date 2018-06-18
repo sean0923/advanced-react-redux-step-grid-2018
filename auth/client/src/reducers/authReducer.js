@@ -11,7 +11,7 @@ export default (state = initialState, action) => {
       return { jwtToken: action.payload.data.jwtToken, errorMessage: '' };
 
     case types.GOT_ERROR_MSSG_FROM_SERVER:
-      return { ...state, errorMessage: action.payload.data };
+      return { ...state, errorMessage: action.payload };
 
     default:
       return state;

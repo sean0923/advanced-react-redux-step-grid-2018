@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { withRouter } from 'react-router-dom';
 
 import * as actions from '../../actions/actions';
 
@@ -29,7 +31,7 @@ class CommonForm extends Component {
       this.props.history.push('/feature');
     } else {
       console.log('this.props.auth.errorMessage: ', this.props.auth.errorMessage);
-      this.setState({ errorrMessageFromServer: this.props.auth.errorMessage.error });
+      this.setState({ errorrMessageFromServer: this.props.auth.errorMessage });
     }
   };
 
@@ -71,4 +73,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, actions)(CommonForm);
+export default compose(withRouter, connect(mapStateToProps, actions))(CommonForm);

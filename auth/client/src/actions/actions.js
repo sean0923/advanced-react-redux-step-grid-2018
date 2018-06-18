@@ -20,9 +20,11 @@ export const getJwtTockenFromServer = (userInputProps, formType) => async dispat
       resolve(true);
     });
   } catch (error) {
+    const errMssg = formType === 'signup' ? 'email is in use' : 'wrong email or password';
+
     dispatch({
       type: types.GOT_ERROR_MSSG_FROM_SERVER,
-      payload: error.response,
+      payload: errMssg,
     });
 
     return new Promise(resolve => {

@@ -13,3 +13,10 @@ ReactDom.render(
   </ProviderWithStore>,
   document.getElementById('root')
 );
+
+// ReactDom.render(
+//   <BrowserRouter>
+//     <App />
+//   </BrowserRouter>,
+//   document.getElementById('root')
+// );
