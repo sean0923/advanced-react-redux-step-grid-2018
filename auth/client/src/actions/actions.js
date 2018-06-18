@@ -6,7 +6,7 @@ const API_URL_BASE = 'http://localhost:5000';
 const API_URL_SIGNUP = `${API_URL_BASE}/signup`;
 const API_URL_SIGNIN = `${API_URL_BASE}/signin`;
 
-export const getJwtTockenFromServer = (userInputProps, formType) => async dispatch => {
+export const getJwtTokenFromServer = (userInputProps, formType) => async dispatch => {
   const postReqUrl = formType === 'signup' ? API_URL_SIGNUP : API_URL_SIGNIN;
 
   try {

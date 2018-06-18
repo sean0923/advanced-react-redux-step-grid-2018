@@ -95,9 +95,9 @@ because session is related to cookies but we are dealing with token
 
 ### 111 - Loggin in with Local Strategy
 
-Sign in user get token, then user need to make req with tocken
+Sign in user get token, then user need to make req with token
 Can Login work with same logic ?
-Login, user get tocken, then ...
+Login, user get token, then ...
 
 It seems like if someone wants to do it with just email and password 
 passport might give you option

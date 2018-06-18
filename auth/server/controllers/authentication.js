@@ -34,7 +34,7 @@ exports.signup = (req, res, next) => {
 
 exports.signin = (req, res, next) => {
   // at this point user's email and password is checked
-  // so just provide user a tocken
+  // so just provide user a token
 
   res.json({ jwtToken: generateTokenForUser(req.user) });
   // req.user is available becuase passport did the work for us

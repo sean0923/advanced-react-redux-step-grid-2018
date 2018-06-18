@@ -20,7 +20,7 @@ class CommonForm extends Component {
 
   handleOnSubmit = async e => {
     e.preventDefault();
-    const isSuccess = await this.props.getJwtTockenFromServer(this.state, this.props.formType);
+    const isSuccess = await this.props.getJwtTokenFromServer(this.state, this.props.formType);
 
     if (isSuccess) {
       this.setState({
