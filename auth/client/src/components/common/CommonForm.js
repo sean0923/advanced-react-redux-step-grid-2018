@@ -28,6 +28,7 @@ class CommonForm extends Component {
         password: '',
         errorrMessageFromServer: '',
       });
+      
       this.props.history.push('/feature');
     } else {
       console.log('this.props.auth.errorMessage: ', this.props.auth.errorMessage);

@@ -11,6 +11,7 @@ export const getJwtTockenFromServer = (userInputProps, formType) => async dispat
 
   try {
     const response = await axios.post(postReqUrl, userInputProps);
+
     dispatch({
       type: types.GET_JWT_TOKEN_FROM_SERVER,
       payload: response,
@@ -31,4 +32,10 @@ export const getJwtTockenFromServer = (userInputProps, formType) => async dispat
       resolve(false);
     });
   }
+};
+
+export const removeJwtToken = () => {
+  return {
+    type: types.REMOVE_JWT_TOKEN,
+  };
 };
